@@ -53,8 +53,14 @@ def plot_vs_samples():
     plt.legend()
     plt.tight_layout()
     plt.show()
+def plot_3D():
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(samples[:, 0], samples[:, 1], samples[:, 2])
+    plt.show()
 #main
 if __name__ == '__main__':
     metropolis_hastings()
     plot_samples()
     plot_vs_samples()
+    plot_3D()
