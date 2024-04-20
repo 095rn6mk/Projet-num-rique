@@ -10,7 +10,7 @@ samples = np.zeros((nb_iterations, 3))
 #sampling functions
 def stationnary_proposal():
     return np.random.multivariate_normal(np.zeros(3), proposition_variance*np.eye(3))
-def proposoal(state):
+def proposal(state):
     return state + stationnary_proposal()
 def target_distribution(state):
     return np.exp(-state.dot(transition_matrix).dot(state)/2)
