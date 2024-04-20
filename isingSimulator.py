@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 #constants
 nb_iterations = 1000
 proposition_variance = 0.01
@@ -58,6 +58,7 @@ def plot_3D():
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(samples[:, 0], samples[:, 1], samples[:, 2])
     plt.show()
+
 #main
 if __name__ == '__main__':
     metropolis_hastings()
