@@ -43,10 +43,15 @@ def plot_samples():
     plt.tight_layout()
     plt.show()
 def plot_vs_samples():
-    plt.scatter(samples[:, 0], samples[:, 1], label='s1 vs s2')
-    plt.scatter(samples[:, 0], samples[:, 2], label='s1 vs s3')
-    plt.scatter(samples[:, 1], samples[:, 2], label='s2 vs s3')
+    fig, axs = plt.subplots(3, 1)
+    axs[0].scatter(samples[:, 0], samples[:, 1], label='s1 vs s2')
+    axs[0].legend()
+    axs[1].scatter(samples[:, 0], samples[:, 2], label='s1 vs s3')
+    axs[1].legend()
+    axs[2].scatter(samples[:, 1], samples[:, 2], label='s2 vs s3')
+    axs[2].legend()    
     plt.legend()
+    plt.tight_layout()
     plt.show()
 #main
 if __name__ == '__main__':
