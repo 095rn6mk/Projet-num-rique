@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+
 #constants
 nb_iterations = 1000
 proposition_variance = 0.01
