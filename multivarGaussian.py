@@ -60,7 +60,7 @@ def comparaison():
     axs[2].plot(x, y*echantillons.size*2/30, color='blue')
     plt.tight_layout()
     plt.show()
-def tracer_vs_echantillons(comparaison=False):
+def tracer_vs_echantillons():
     fig, axs = plt.subplots(3, 1)
     axs[0].scatter(echantillons[:, 0], echantillons[:, 1], label='s1 vs s2')
     axs[0].legend()
@@ -72,7 +72,7 @@ def tracer_vs_echantillons(comparaison=False):
     plt.tight_layout()
     plt.show()
 
-def tracer_3D(comparaison=False):
+def tracer_3D():
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(echantillons[:, 0], echantillons[:, 1], echantillons[:, 2])

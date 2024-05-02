@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 nb_iterations = 2000
 taille_grille = 5
 etat_initial = np.random.choice([-1, 1], size=(taille_grille, taille_grille))
-champ_magnetique = -0.8 #B
+champ_magnetique = 0.8 #B
 energie_interaction = 1.0 #J
 temperature_inverse = 0.10 #beta
 moment_magnetique = 1.0 #mu
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     #same thing for different values of interaction energy
     #reset magnetic field
-    champ_magnetique = -0.8
+    champ_magnetique = 0.8
     energies_interaction = np.linspace(0.1, 2.0, 100)
     capacites_thermiques = np.zeros(energies_interaction.size)
     susceptibilites = np.zeros(energies_interaction.size)
