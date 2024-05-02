@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#constants
+#constantes
 nb_iterations = 2000
 taille_grille = 5
 etat_initial = np.random.choice([-1, 1], size=(taille_grille, taille_grille))
@@ -9,7 +9,7 @@ energie_interaction = 1.0 #J
 temperature_inverse = 0.10 #beta
 moment_magnetique = 1.0 #mu
 iterations_avant_echantillonnage = 1000
-#sampling functions
+#fonctions d'échantillonage
 def energie(etat):
     return -moment_magnetique*champ_magnetique*np.sum(etat) - energie_interaction*np.sum([etat[(i+1)%taille_grille, j]*etat[i, j] + etat[i, (j+1)%taille_grille]*etat[i, j] + etat[(i-1)%taille_grille, j]*etat[i, j] + etat[i, (j-1)%taille_grille]*etat[i, j] for i in range(taille_grille) for j in range(taille_grille)])
 def deltaEnergie(nouvel_etat,i,j):
@@ -40,7 +40,7 @@ def susceptibilite(magnetisations):
     return np.var(magnetisations)*(temperature_inverse)/magnetisations.size
 if __name__ == '__main__':
     energies, magnetisations = metropolis_hastings(etat_initial)
-    #find and plot heat capacity and suceptibility for different temperatures, in this case, for different values of beta, and different values of magnetic field and interaction energy
+#on évalue les capacités thermiques et les susceptibilités pour différentes températures, champs magnétiques et énergies d'interaction
     temperatures_inverses = np.linspace(0.01, 1.0, 100)
     capacites_thermiques = np.zeros(temperatures_inverses.size)
     susceptibilites = np.zeros(temperatures_inverses.size)
@@ -56,8 +56,7 @@ if __name__ == '__main__':
     plt.xlabel('Temperature inverse')
     plt.ylabel('Susceptibilite')
     plt.show()
-    #same thing for different values of magnetic field
-    #reset inverse temperature
+    
     temperature_inverse = 0.10
     champs_magnetiques = np.linspace(-1.0, 1.0, 100)
     capacites_thermiques = np.zeros(champs_magnetiques.size)
@@ -75,8 +74,6 @@ if __name__ == '__main__':
     plt.ylabel('Susceptibilite')
     plt.show()
 
-    #same thing for different values of interaction energy
-    #reset magnetic field
     champ_magnetique = 0.8
     energies_interaction = np.linspace(0.1, 2.0, 100)
     capacites_thermiques = np.zeros(energies_interaction.size)
