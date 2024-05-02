@@ -39,16 +39,6 @@ def tracer_echantillons(comparaison=False):
     axs[1].set_title('Coordonnées Y')
     axs[2].hist(2*echantillons[:, 2], bins=30)
     axs[2].set_title('Coordonnées Z')
-    if comparaison:
-        x = np.linspace(-1, 1, 100)
-        y = np.exp(-x**2/(2*matrice_transition[0, 0]))/np.sqrt(2*np.pi*matrice_transition[0, 0])
-        axs[0].plot(x, y*echantillons.size*2/30, color='red')
-        x= np.linspace(-1, 1, 100)
-        y = np.exp(-x**2/(2*matrice_transition[1, 1]))/np.sqrt(2*np.pi*matrice_transition[1, 1])
-        axs[1].plot(x, y*echantillons.size*2/30, color='green')
-        x= np.linspace(-1, 1, 100)
-        y = np.exp(-x**2/(2*matrice_transition[2, 2]))/np.sqrt(2*np.pi*matrice_transition[2, 2])
-        axs[2].plot(x, y*echantillons.size*2/30, color='blue')
     plt.tight_layout()
     plt.show()
 def comparaison():
